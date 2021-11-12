@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
 use Cart;
 
 class CartController extends Controller
@@ -39,10 +40,10 @@ class CartController extends Controller
             return $cartitem->id == $request->id;
         });
         if($duplicates->isnotempty()){
-            return redirect()->route('cart.index')->with('success_message','item is already in your cart!');
+            return redirect()->route('cart.index')->with('success_message','Item is already in your cart!');
         }
-        Cart::add($request->id ,$request->name , 1 ,$request->price,)
-            ->associate('App\Product');
+        Cart::add($request->id ,$request->name , 1 ,$request->price)
+            ->associate('App\Models\Item');
             
             return redirect()->route('cart.index')->with('success_message','Item was added to your cart!');
     }
@@ -94,14 +95,16 @@ class CartController extends Controller
      */
     public function destroy($rowid)
     {   
-        
+        Cart::remove($rowid);
         return back()->with('success_message','item has been removed');
     }
+
+    
     
     public function emptycart( )
     {
         Cart::destroy();
-        return back()->with('success_message','all items has been removed');
+        return back()->with('success_message','all items have been removed');
     }
 
 }

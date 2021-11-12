@@ -27,7 +27,7 @@
             <div class="col-md-6 mt-1">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-img-actions"> <img src='{{ $product->image}}' class="product iamge" width="400" height="350" alt=""> </div>
+                        <div class="card-img-actions"> <img src={{asset('storage/'.$product->image)}} class="product iamge" width="400" height="350" alt=""> </div>
                     </div>
                     <div class="card-body bg-dark text-center">
                         <div class="mb-2">

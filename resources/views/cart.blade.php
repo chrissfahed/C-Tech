@@ -62,16 +62,19 @@
 					<th> </th>
 				  </tr>
 				</thead>
-				@foreach (Cart::content() as $item)
+				@foreach (Cart::content() as $row)
+				{{-- @php
+				var_dump($row)
+				@endphp --}}
 				<tbody>
 				
 				
 				  <tr>	
 					
 					<td class="col-sm-8 col-md-6">
-						<div class="media"> <a class="thumbnail pull-left" href="/shop/{{ $item->id }}"> <img class="media-object" src='{{ $item->image}}'alt="#"></a>
+						<div class="media"> <a class="thumbnail pull-left" href="/shop/{{ $row->id }}"> <img class="media-object" src="{{asset('storage/'.$row->model->image)}}" alt="#"></a>
 							<div class="media-body">
-						  	<h4 class="media-heading"><a href="/shop/{{ $item->id }}">{{ $item->name}}</a></h4>
+						  	<h4 class="media-heading"><a href="/shop/{{ $row->id }}">{{ $row->name}}</a></h4>
 						  	<span>Status: </span><span class="text-success">In Stock</span> 
 							</div>
 					  	</div>
@@ -80,18 +83,19 @@
 						<td class="col-sm-1 col-md-1" style="text-align: center">
 								<select class="quantity" name="quantity" id="">
 									@for ($i = 1; $i < 5 + 1 ; $i++)
-                                    	<option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    	<option {{ $row->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                 	@endfor
 								</select>
 						</td>
 					</div>
-					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $item->price }}</p></td>
-					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $item->price }}</p></td>
+					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->price }}</p></td>
+					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->price }}</p></td>
 					<td class="col-sm-1 col-md-1">
-					<form action="{{ route('cart.destroy',$item->rowId) }}" method="post">
+
+					<form action="{{ route('cart.destroy',$row->rowId) }}" method="POST">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-						<button type="button" class="bt_main"><i class="fa fa-trash"> Remove</i></button>
+						<button type="submit" class="bt_main"><i class="fa fa-trash"> Remove</i></button>
 						
 					</form>	
 					</td>
