@@ -10,23 +10,24 @@
   <!-- site metas -->
   <title>C-tech</title>
   <!-- site icons -->
-  <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+
+  <link rel="icon" href="{{asset('images/fevicon/fevicon.png')}}" type="image/gif" />
   <!-- bootstrap css -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
   <!-- Site css -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="{{asset('css/style.css')}}" />
   <!-- responsive css -->
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="{{asset('css/responsive.css')}}" />
   <!-- colors css -->
-  <link rel="stylesheet" href="css/colors1_dark.css" />
+  <link rel="stylesheet" href="{{asset('css/colors1_dark.css')}}" />
   <!-- custom css -->
-  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="{{asset('css/custom.css')}}" />
   <!-- wow Animation css -->
-  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="{{asset('css/animate.css')}}" />
   <!-- revolution slider css -->
-  <link rel="stylesheet" type="text/css" href="revolution/css/settings.css" />
-  <link rel="stylesheet" type="text/css" href="revolution/css/layers.css" />
-  <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css" />
+  <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/settings.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/layers.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/navigation.css')}}" />
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -79,7 +80,8 @@
             <div class="row">
               <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <!-- logo start -->
-                <div class="logo"> <a href="it_home.html"><img src="images/logos/logo.jpg" alt="logo" /></a> </div>
+                
+                <div class="logo"> <a href="it_home.html"><img src="{{asset('images/logos/logo.jpg')}}" alt="logo" /></a> </div>
                 <!-- logo end -->
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -257,26 +259,26 @@
   </footer>
 
 <!-- js section -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- menu js -->
-<script src="js/menumaker.js"></script>
+<script src="{{asset('js/menumaker.js')}}"></script>
 <!-- wow animation -->
-<script src="js/wow.js"></script>
+<script src="{{asset('js/wow.js')}}"></script>
 <!-- custom js -->
-<script src="js/custom.js"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 <!-- revolution js files -->
-<script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="{{asset('revolution/js/jquery.themepunch.tools.min.js')}}"></script>
+<script src="{{asset('revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.carousel.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.migration.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
+<script src="{{asset('revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
 <!-- map js -->
 <script>
 

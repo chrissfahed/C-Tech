@@ -67,7 +67,8 @@
                                           <input type="hidden" name="image" value="{{ $product->image }}">
                                           <button type="submit" class="btn bg-dark bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                                     </form>
-                                    </div><img src=  '{{ $product->image}}' alt="featured product images" width="200" class="ml-lg-5 order-1 order-lg-2">
+                                    {{-- '{{ $product->image}}' --}}
+                                    </div><img src={{asset('storage/'.$product->image)}}   alt="featured product images" width="200" class="ml-lg-5 order-1 order-lg-2">
                             </div> <!-- End -->
                         </li> <!-- End -->
                     </ul> <!-- End -->

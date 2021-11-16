@@ -6,8 +6,6 @@
 @endsection()
 
 @section('content')
-
-
 <div id="inner_banner" class="section inner_banner_section">
     <div class="container">
       <div class="row">

@@ -24,9 +24,7 @@ class CreateItemsTable extends Migration
             $table->string('description');
             $table->string('image');
             $table->boolean('isfeatured')->default('1');
-
-
-
+            $table->timestamps();
         });
     }
 
