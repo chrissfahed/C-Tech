@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-body bg-dark text-center">
                     <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="/shop/{{ $product->id }}" class="text-default mb-2" data-abc="true">{{ $product->description}}</a> </h6> <a href="#" class="text-muted" data-abc="true">{{ $product->brand}}</a>
+                        <h6 class="font-weight-semibold mb-2"> <a href="/shop/{{ $product->id }}" class="text-default mb-2" data-abc="true">{{ $product->displayname}}</a> </h6> <a href="#" class="text-muted" data-abc="true">{{ $product->brand}}</a>
                     </div>
                     <h3 class="mb-0 font-weight-semibold">${{ $product->price}}</h3>
                     <form action="{{ route('cart.store') }}" method="post">
@@ -38,6 +38,7 @@
                       <input type="hidden" name="name" value="{{ $product->displayname }}">
                       <input type="hidden" name="price" value="{{ $product->price }}">
                       <input type="hidden" name="image" value="{{ $product->image }}">
+                      <input type="hidden" name="status" value="{{ $product->status }}">
                       <button type="submit" class="btn bg-dark bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                     </form>
                 </div>

@@ -1,6 +1,6 @@
 @extends('/layouts.app')
 @section('content')
-    {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -38,8 +38,8 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div> --}}
-       {{--end carousel  --}}
+    </div>
+       {{-- end carousel  --}}
     <div class="container py-5">
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">

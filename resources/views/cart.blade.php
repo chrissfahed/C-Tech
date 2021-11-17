@@ -75,7 +75,7 @@
 						<div class="media"> <a class="thumbnail pull-left" href="/shop/{{ $row->id }}"> <img class="media-object" src="{{asset('storage/'.$row->model->image)}}" alt="#"></a>
 							<div class="media-body">
 						  	<h4 class="media-heading"><a href="/shop/{{ $row->id }}">{{ $row->name}}</a></h4>
-						  	<span>Status: </span><span class="text-success">In Stock</span> 
+						  	<span>Status: </span><span class="text-success">{{ $row->status }}</span> 
 							</div>
 					  	</div>
 					</td>

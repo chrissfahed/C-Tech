@@ -81,7 +81,7 @@
               <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <!-- logo start -->
                 
-                <div class="logo"> <a href="it_home.html"><img src="{{asset('images/logos/logo.jpg')}}" alt="logo" /></a> </div>
+                <div class="logo"> <a href=""><img src="{{asset('images/logos/logo.jpg')}}" alt="logo" /></a> </div>
                 <!-- logo end -->
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
