@@ -12,9 +12,16 @@ class ShopsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $products = item::all();
-        return view('shop')->with('products',$products);
+        $status = item::get(['status']) ;
+        $brand =item::get(['brand']);
+        // dd($status);
+        return view('shop')->with([
+            'products'=>$products,
+            'status'=>$status,
+            'brand'=>$brand
+        ]);
     }
 
     /**

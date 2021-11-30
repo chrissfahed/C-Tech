@@ -19,6 +19,35 @@
       </div>
     </div>
   </div>
+<div  class="container d-flex justify-content-center mt-50 mb-50">
+  <div class="row">
+   <div >
+    <label for="status">STATUS: </label>
+
+    @foreach ($status as $status)
+    <div class="col-md-4 mt-1">
+      {{ $status }}
+    </div>
+    @endforeach
+  
+    <label for=""> BRAND: </label>
+    <div class="col-md-4 mt-1">
+      <select name="" id="">
+
+        @foreach ($brand as $brand)
+          <option value="">{{$brand}}</option>
+          @php
+          var_dump($brand);
+          @endphp
+        @endforeach
+      </select>
+    </div> 
+   </div>
+   </div>
+  </div>
+
+</div>
+
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
         @foreach ($products as $product)
