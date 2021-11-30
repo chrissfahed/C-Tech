@@ -16,11 +16,13 @@ class ShopsController extends Controller
         $products = item::all();
         $status = item::get(['status']) ;
         $brand =item::get(['brand']);
+        $type =item::get(['type']);
         // dd($status);
         return view('shop')->with([
             'products'=>$products,
             'status'=>$status,
-            'brand'=>$brand
+            'brand'=>$brand,
+            'type'=>$type
         ]);
     }
 

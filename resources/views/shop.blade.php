@@ -19,35 +19,39 @@
       </div>
     </div>
   </div>
-<div  class="container d-flex justify-content-center mt-50 mb-50">
-  <div class="row">
-   <div >
-    <label for="status">STATUS: </label>
-
-    @foreach ($status as $status)
-    <div class="col-md-4 mt-1">
-      {{ $status }}
+{{-- filter --}}
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="row">
+      <div class="col">
+        Type
+        <select name="" id="">
+          @foreach ($type as $type)
+              <option value="">{{ $type }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col">
+        Brand
+        <select name="" id="">
+          @foreach ($brand as $brand)
+              <option value="">{{ $brand }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col">
+        Status:
+        <br>
+        <input type="checkbox" name="NEW" id="" ><label>NEW</label>
+        <input type="checkbox" name="USED" id=""><label>USED</label>
+      </div>
+      <div class="col">
+        <input type="submit" value="search">
+      </div>
     </div>
-    @endforeach
-  
-    <label for=""> BRAND: </label>
-    <div class="col-md-4 mt-1">
-      <select name="" id="">
-
-        @foreach ($brand as $brand)
-          <option value="">{{$brand}}</option>
-          @php
-          var_dump($brand);
-          @endphp
-        @endforeach
-      </select>
-    </div> 
-   </div>
-   </div>
   </div>
-
 </div>
-
+{{--  end filter --}}
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
         @foreach ($products as $product)
