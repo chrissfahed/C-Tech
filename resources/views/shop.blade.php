@@ -19,38 +19,52 @@
       </div>
     </div>
   </div>
+
+
+
+
 {{-- filter --}}
+<form method="GET" action="{{route('search')}}">
 <div class="container-fluid">
   <div class="row justify-content-md-center">
     <div class="row">
       <div class="col">
         Type
-        <select name="" id="">
+        <select name="type" id="type">
+              <option value="">Please select an option</option>
           @foreach ($type as $type)
-              <option value="">{{ $type }}</option>
+              <option value="{{ $type->type }}">{{ $type->type }}</option>
           @endforeach
         </select>
       </div>
       <div class="col">
         Brand
-        <select name="" id="">
+        <select name="brand" id="brand">
+              <option value="">Please select an option</option>
           @foreach ($brand as $brand)
-              <option value="">{{ $brand }}</option>
+              <option value="{{ $brand->brand }}">{{ $brand->brand }}</option>
           @endforeach
         </select>
       </div>
       <div class="col">
         Status:
         <br>
-        <input type="checkbox" name="NEW" id="" ><label>NEW</label>
-        <input type="checkbox" name="USED" id=""><label>USED</label>
+        <input type="radio" id="new" name="status" value="NEW">
+          <label for="new">New</label><br>
+        <input type="radio" id="used" name="status" value="USED">
+          <label for="used">Used</label><br>
+        <input type="radio" id="new" name="status" value="">
+          <label for="">All</label><br>  
       </div>
       <div class="col">
-        <input type="submit" value="search">
+        <button type="submit"> Search </button>
+
+      
       </div>
     </div>
   </div>
 </div>
+</form>
 {{--  end filter --}}
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
