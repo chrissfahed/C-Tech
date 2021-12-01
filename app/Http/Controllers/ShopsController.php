@@ -14,13 +14,13 @@ class ShopsController extends Controller
     public function index()
     {   
         $products = item::all();
-        $status = item::get(['status']) ;
-        $brand =item::get(['brand']);
-        $type =item::get(['type']);
-        // dd($status);
+
+        $brand = Item::distinct()->get(['brand']);
+        $type = Item::distinct()->get(['type']);
+        // $type =item::get(['type']);
+        // dd($brand);
         return view('shop')->with([
             'products'=>$products,
-            'status'=>$status,
             'brand'=>$brand,
             'type'=>$type
         ]);
@@ -83,6 +83,34 @@ class ShopsController extends Controller
         //
     }
 
+
+    public function search(Request $request)
+    {
+            $products = Item::all();
+        if (request()->type) {
+            $products = $products->where('type', request()->type);
+        }
+
+        if (request()->brand) {
+            $products = $products->where('brand', request()->brand);
+        }
+
+        if (request()->status) {
+            $products = $products->where('status', request()->status);
+        }
+
+        // $products = $products->paginate(6);
+
+        $brand = Item::distinct()->get(['brand']);
+        $type = Item::distinct()->get(['type']);
+    
+        return view('shop')->with([
+            'products'=>$products,
+            'brand'=>$brand,
+            'type'=>$type
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -93,4 +121,5 @@ class ShopsController extends Controller
     {
         //
     }
+
 }

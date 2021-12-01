@@ -40,6 +40,10 @@ Route::get('/empty',[CartController::class, 'emptycart'])->name('cart.empty');
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
 
+
+// Route::get('/search', [ShopsController::class, 'search'])->name('search');
+Route::get('/search', 'App\Http\Controllers\ShopsController@search')->name('search');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
