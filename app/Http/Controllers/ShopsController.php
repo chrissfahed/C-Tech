@@ -13,7 +13,7 @@ class ShopsController extends Controller
      */
     public function index()
     {   
-        $products = item::all();
+        $products = item::paginate(2);
 
         $brand = Item::distinct()->get(['brand']);
         $type = Item::distinct()->get(['type']);
@@ -86,17 +86,17 @@ class ShopsController extends Controller
 
     public function search(Request $request)
     {
-            $products = Item::all();
+            $products = Item::paginate(2);
         if (request()->type) {
-            $products = $products->where('type', request()->type);
+            $products = $products->where('type', request()->type)->paginate(2);
         }
 
         if (request()->brand) {
-            $products = $products->where('brand', request()->brand);
+            $products = $products->where('brand', request()->brand)->paginate(2);
         }
 
         if (request()->status) {
-            $products = $products->where('status', request()->status);
+            $products = $products->where('status', request()->status)->paginate(2);
         }
 
         // $products = $products->paginate(6);

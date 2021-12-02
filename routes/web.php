@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\AppointmentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,8 @@ Route::get('/contactus', [ContactusController::class, 'index'])->name('contactus
 Route::get('/empty',[CartController::class, 'emptycart'])->name('cart.empty');
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
+
+
 
 
 // Route::get('/search', [ShopsController::class, 'search'])->name('search');
