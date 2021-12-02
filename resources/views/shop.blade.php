@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="full">
             <div class="title-holder">
-              <div class="title-holder-cell text-left">
+              <div class="text-left title-holder-cell">
                 <h1 class="page-title">Shop Page</h1>
                 <ol class="breadcrumb">
                   <li><a href="/">Home</a></li>
@@ -29,22 +29,40 @@
   <div class="row justify-content-md-center">
     <div class="row">
       <div class="col">
-        Type
+        <label for="">Type</label>
         <select name="type" id="type">
               <option value="">Please select an option</option>
           @foreach ($type as $type)
+          
               <option value="{{ $type->type }}">{{ $type->type }}</option>
           @endforeach
         </select>
+
+        {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+        @if (request()->input('type'))
+          <br><label for="">Current Filter: {{request()->input('type')}}</label>
+        @else
+          <br><label for="">Current Filter: None</label>
+        @endif
+        {{-- END OF BLOCK --}}
       </div>
+      
       <div class="col">
-        Brand
+        <label for="">Brand</label>
         <select name="brand" id="brand">
-              <option value="">Please select an option</option>
+              <option value="">Please select an option</option>  
           @foreach ($brand as $brand)
               <option value="{{ $brand->brand }}">{{ $brand->brand }}</option>
           @endforeach
         </select>
+
+        {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+        @if (request()->input('brand'))
+          <br><label for="">Current Filter: {{request()->input('brand')}}</label>
+        @else
+          <br><label for="">Current Filter: None</label>
+        @endif
+        {{-- END OF BLOCK --}}
       </div>
       <div class="col">
         Status:
@@ -54,7 +72,15 @@
         <input type="radio" id="used" name="status" value="USED">
           <label for="used">Used</label><br>
         <input type="radio" id="new" name="status" value="">
-          <label for="">All</label><br>  
+          <label for="">All</label><br>
+          
+          {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+        @if (request()->input('status'))
+        <br><label for="">Current Filter: {{request()->input('status')}}</label>
+      @else
+        <br><label for="">Current Filter: None</label>
+      @endif
+      {{-- END OF BLOCK --}}
       </div>
       <div class="col">
         <button type="submit"> Search </button>
@@ -69,13 +95,13 @@
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
         @foreach ($products as $product)
-        <div class="col-md-4 mt-1">
+        <div class="mt-1 col-md-4">
             <div class="card">
                 <div class="card-body">
                   <div class="card-img-actions"> <img src={{asset('storage/'.$product->image)}} class="product iamge" width="300" height="200" alt=""> </div>
-                  <div class="card-body bg-dark text-center">
+                  <div class="text-center card-body bg-dark">
                       <div class="mb-2">
-                          <h6 class="font-weight-semibold mb-2"> <a href="/shop/{{ $product->id }}" class="text-default mb-2" data-abc="true">{{ $product->displayname}}</a> </h6> <a href="#" class="text-muted" data-abc="true">{{ $product->brand}}</a>
+                          <h6 class="mb-2 font-weight-semibold"> <a href="/shop/{{ $product->id }}" class="mb-2 text-default" data-abc="true">{{ $product->displayname}}</a> </h6> <a href="#" class="text-muted" data-abc="true">{{ $product->brand}}</a>
                       </div>
                       <h3 class="mb-0 font-weight-semibold">${{ $product->price}}</h3>
                       <form action="{{ route('cart.store') }}" method="post">
@@ -85,8 +111,8 @@
                         <input type="hidden" name="price" value="{{ $product->price }}">
                         <input type="hidden" name="image" value="{{ $product->image }}">
                         <input type="hidden" name="status" value="{{ $product->status }}">
-                        <button type="submit" class="btn bg-dark bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                      </form>
+                        <button type="submit" class="btn bg-dark bg-cart"><i class="mr-2 fa fa-cart-plus"></i> Add to cart</button>
+                      </form> 
                   </div>
                 </div>
             </div>
@@ -95,5 +121,14 @@
        
     </div>
 </div>
- {{ $products->links()}}
+
+
+{{-- THIS IS THE CORRECT WAY TO HAVE YOUR FILTERS WORK WITH THE PAGINATION. 
+YOU HAVE TO APPEND THE REQUEST PARAMS KERMEL YDALL MECHE OR ELSE FILTERS WILL 
+RESET ON PAGE 2 AND YOULL GET ALL THE PRODUCTS UNFILTERED --}}
+{{$products->appends(request()->input())->links()}}
+
+
+
+{{-- {{ $products->links()}} --}}
 @endsection()

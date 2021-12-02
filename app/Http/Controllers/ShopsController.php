@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\DB;
+
 class ShopsController extends Controller
 {
     /**
@@ -13,10 +15,13 @@ class ShopsController extends Controller
      */
     public function index()
     {   
-        $products = item::paginate(2);
+        // $products = item::all();
+        $products = item::paginate(3);
 
         $brand = Item::distinct()->get(['brand']);
         $type = Item::distinct()->get(['type']);
+
+        // $products = $products->paginate(3);
         // $type =item::get(['type']);
         // dd($brand);
         return view('shop')->with([
@@ -86,20 +91,29 @@ class ShopsController extends Controller
 
     public function search(Request $request)
     {
-            $products = Item::paginate(2);
+        // YOU CANNOT PAGINATE AN ELOQUENT COLLECTION. 
+        // THIS IS WHY YOU SHOULDNT FETCH DATA LIKE THIS ----> $products = item::all();
+
+        $products = DB::table('items');
+        // INSTEAD YOU SHOULD FETCH IT LIKE THIS ^
+
         if (request()->type) {
-            $products = $products->where('type', request()->type)->paginate(2);
+            $products = $products->where('type', request()->type);
         }
 
         if (request()->brand) {
-            $products = $products->where('brand', request()->brand)->paginate(2);
+            $products = $products->where('brand', request()->brand);
         }
 
         if (request()->status) {
-            $products = $products->where('status', request()->status)->paginate(2);
+            $products = $products->where('status', request()->status);
         }
 
-        // $products = $products->paginate(6);
+        // ALWAYS PAGINATE AFTER FILTERING RESULTS.
+        // IF YOU PAGINATE FO2 BYETLA3LAK INCOMPLETE RESULTS (3 ITEMS IN THIS CASE) 
+        // IN OTHER WORDS YOU FILTER 3 ITEMS BADEL THE WHOLE ITEMS TABLE
+
+        $products = $products->paginate(3);
 
         $brand = Item::distinct()->get(['brand']);
         $type = Item::distinct()->get(['type']);
