@@ -50,3 +50,7 @@ Route::get('/search', 'App\Http\Controllers\ShopsController@search')->name('sear
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
