@@ -97,17 +97,30 @@
                         <span class="badge badge-secondary badge-pill">{{ Cart::instance('default')->count() }}</span></span>
                         @endif
                         </a>
-                      </li>
-                      <li> <a href="/Login">LOGIN</a></li>
+                      </li> 
                       <li> <a href="/contactus">Contact Us</a></li>
                       <li><a href="/aboutus">About Us</a></li>
+                      <li>
+                        @if (Auth::check())
+                        <a href="/profile">Profile</a>
+                        @endif
+                      </li>
+                      <li>
+                        @if (Auth::check())
+                        <a href="/Logout">Logout</a>
+                        
+                        @else
+                        <a href="/login">LOGIN/REGISTER</a>
+                        @endif
+                      </li>
+                      
                     </ul>
                   </div>
-                  <div class="search_icon">
+                  {{-- <div class="search_icon">
                     <ul>
                       <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                     </ul>
-                  </div>
+                  </div> --}}
                 </div>
                 <!-- menu end -->
               </div>

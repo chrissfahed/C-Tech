@@ -6,28 +6,31 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-80" src="{{ asset('images/it_service/gaming_pc_1.jpg') }}" alt="repaire technician">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>...</h5>
-                        <p>...</p>
-                    </div>
+        <div class="carousel-" style="margin: auto" >
+            <div class="row">
+                <div class="carousel-item active">
+                    <img class="d-block w-40" src="{{ asset('images/carousel/iphone 13 promax.jpg') }}" alt="repaire technician" width="1000" height="800">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5> Iphone pro max</h5>
+                            <p>...</p>
+                        </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-80" src="{{ asset('images/carousel\samsung s21 ultra.jpg') }}" alt="Second slide" width="1000" height="800" >
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                        </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-40" src="{{ asset('images\carousel\gygabite mother board.png') }}" alt="Third slide" width="1000" height="800">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                        </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-80" src="{{ asset('images/it_service/slide1.jpg') }}" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>...</h5>
-                        <p>...</p>
-                    </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-80" src="{{ asset('images/it_service/slide3.jpg') }}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>...</h5>
-                        <p>...</p>
-                    </div>
-            </div>
+            
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
