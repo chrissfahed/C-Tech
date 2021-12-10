@@ -83,12 +83,18 @@
                 
                 <div class="logo"> <a href=""><img src="{{asset('images/logos/logo.jpg')}}" alt="logo" /></a> </div>
                 <!-- logo end -->
+                
+
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <!-- menu start -->
                 <div class="menu_side">
                   <div id="navbar_menu">
                     <ul class="first-ul">
+                      <li>
+                        @if (Auth::check())
+                        <h1 style="color:grey">Welcome {{ auth()->user()->name }}!</h1></li>
+                        @endif
                       <li> <a class="active" href="/">Home</a></li>
                       <li> <a href="/shop">SHOP</a></li>
                       <li> <a href="/cart">cart

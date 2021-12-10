@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
 
-class UsersController extends Controller
+class AboutusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $uid = auth()->user()->id;
-        $orders = Order::all()->where('user_id', '=', $uid);
-        return view("profile")->with(['orders' => $orders]);
+       return view('aboutus');
     }
 
     /**
@@ -59,7 +56,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -69,26 +66,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => 'required|string|email|max:255|unique:users,email,'.auth()->id(),
-            'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed'],
-        ]);
-        
-        $user = auth()->user();
-        $input = $request->except('password', 'password_confirmation');
-
-        if (! $request->filled('password')){
-            $user->fill($input)->save();
-            return back()->with('success_message', 'Profile updated successfully!');
-        }
-
-        $user->password = bcrypt($request->password);
-        $user->fill($input)->save();
-        return back()->withErrors('success_message', 'Profile and Password updated successfully!');
-
+        //
     }
 
     /**

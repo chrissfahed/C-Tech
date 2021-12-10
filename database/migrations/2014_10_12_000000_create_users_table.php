@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             // $table->boolean('isadmin');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('phonenumber');
+            $table->string('Address');
         });
     }
 

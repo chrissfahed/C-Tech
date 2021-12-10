@@ -35,35 +35,38 @@
                   <h2>Make	Appointment</h2>
                 </div>
               </div>
+              <form action="" method="post">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appointment_form">
                 <div class="form_section">
-                  <form class="form_contant" action="index.html">
+                  <form class="form_contant" action={{ route('appointment.store') }}  method="post">
+                    {{-- {{ csrf_field() }} --}}
                     <fieldset class="row">
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="First Name*" type="text" required>
+                      <input type="text" class="field_custom" placeholder="First Name*" type="text" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Last Name" type="text" required>
+                      <input type="text" class="field_custom" placeholder="Last Name" type="text" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Your Email" type="email" required>
+                      <input type="text" class="field_custom" placeholder="Your Email" type="email" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Your Phone Number" type="text" required>
+                      <input type="text" class="field_custom" placeholder="Your Phone Number" type="text" required>
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Subject" type="text" required>
+                      <input type="text" class="field_custom" placeholder="Subject" type="text" required>
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <textarea class="field_custom" placeholder="Description" required></textarea>
                     </div>
                     <div class="center">
-                      <button class="btn main_bt">SUBMIT NOW</button>
+                      <button type="submit" class="btn main_bt">SUBMIT NOW</button>
                     </div>
                     </fieldset>
                   </form>
                 </div>
               </div>
+            </form>
             </div>
           </div>
         </div>

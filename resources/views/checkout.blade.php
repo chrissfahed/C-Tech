@@ -81,16 +81,12 @@
             {{ csrf_field() }}
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                
+                <input type="text" class="form-control" id="firstName" placeholder="{{ auth()->user()->name }}" value="" required>
+                <input type="hidden" name="u_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="u_email" value="{{ auth()->user()->email }}">
+                <input type="hidden" name="u_Address" value="{{ auth()->user()->Address }}">
+                <input type="hidden" name="u_name" value="{{ auth()->user()->name }}">
+                <input type="hidden" name="c_total" value="{{ Cart::total() }}">
               </div>
             </div>
             <hr class="mb-4">

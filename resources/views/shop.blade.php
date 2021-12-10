@@ -27,67 +27,78 @@
 <form method="GET" action="{{route('search')}}">
 <div class="container-fluid">
   <div class="row justify-content-md-center">
-    <div class="row">
-      <div class="col">
-        <label for="">Type</label>
-        <select name="type" id="type">
-              <option value="">Please select an option</option>
-          @foreach ($type as $type)
-          
-              <option value="{{ $type->type }}">{{ $type->type }}</option>
-          @endforeach
-        </select>
+    
+    <div class="row gutters-sm">
+      <div class="col-md-15 mt-0 mb-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="row" style="color: black">
+              <div class="col">
+                <label for="">Type</label>
+                <select name="type" id="type">
+                      <option value="">Please select an option</option>
+                  @foreach ($type as $type)
+                  
+                      <option value="{{ $type->type }}">{{ $type->type }}</option>
+                  @endforeach
+                </select>
 
-        {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
-        @if (request()->input('type'))
-          <br><label for="">Current Filter: {{request()->input('type')}}</label>
-        @else
-          <br><label for="">Current Filter: None</label>
-        @endif
-        {{-- END OF BLOCK --}}
-      </div>
-      
-      <div class="col">
-        <label for="">Brand</label>
-        <select name="brand" id="brand">
-              <option value="">Please select an option</option>  
-          @foreach ($brand as $brand)
-              <option value="{{ $brand->brand }}">{{ $brand->brand }}</option>
-          @endforeach
-        </select>
+                {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+                @if (request()->input('type'))
+                  <br><label for="">Current Filter: {{request()->input('type')}}</label>
+                @else
+                  <br><label for="">Current Filter: None</label>
+                @endif
+                {{-- END OF BLOCK --}}
+              </div>
+              
+              <div class="col">
+                <label for="">Brand</label>
+                <select name="brand" id="brand">
+                      <option value="">Please select an option</option>  
+                  @foreach ($brand as $brand)
+                      <option value="{{ $brand->brand }}">{{ $brand->brand }}</option>
+                  @endforeach
+                </select>
 
-        {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
-        @if (request()->input('brand'))
-          <br><label for="">Current Filter: {{request()->input('brand')}}</label>
-        @else
-          <br><label for="">Current Filter: None</label>
-        @endif
-        {{-- END OF BLOCK --}}
-      </div>
-      <div class="col">
-        Status:
-        <br>
-        <input type="radio" id="new" name="status" value="NEW">
-          <label for="new">New</label><br>
-        <input type="radio" id="used" name="status" value="USED">
-          <label for="used">Used</label><br>
-        <input type="radio" id="new" name="status" value="">
-          <label for="">All</label><br>
-          
-          {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
-        @if (request()->input('status'))
-        <br><label for="">Current Filter: {{request()->input('status')}}</label>
-      @else
-        <br><label for="">Current Filter: None</label>
-      @endif
-      {{-- END OF BLOCK --}}
-      </div>
-      <div class="col">
-        <button type="submit"> Search </button>
+                {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+                @if (request()->input('brand'))
+                  <br><label for="">Current Filter: {{request()->input('brand')}}</label>
+                @else
+                  <br><label for="">Current Filter: None</label>
+                @endif
+                {{-- END OF BLOCK --}}
+              </div>
+              <div class="col">
+                Status:
+                <br>
+                <input type="radio" id="new" name="status" value="NEW">
+                  <label for="new">New</label><br>
+                <input type="radio" id="used" name="status" value="USED">
+                  <label for="used">Used</label><br>
+                <input type="radio" id="new" name="status" value="">
+                  <label for="">All</label><br>
+                  
+                  {{-- ADDED FOR DEBUG (FIK TCHILA EZA MA 7ABBET) --}}
+                @if (request()->input('status'))
+                <br><label for="">Current Filter: {{request()->input('status')}}</label>
+              @else
+                <br><label for="">Current Filter: None</label>
+              @endif
+              {{-- END OF BLOCK --}}
+              </div>
+              <div class="col">
+                <button type="submit"  class="btn btn-primary btn-sm"> Search </button>
 
-      
+              
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
   </div>
 </div>
 </form>
@@ -95,7 +106,7 @@
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
         @foreach ($products as $product)
-        <div class="mt-1 col-md-4">
+        <div class="mt-1 col">
             <div class="card">
                 <div class="card-body">
                   <div class="card-img-actions"> <img src={{asset('storage/'.$product->image)}} class="product iamge" width="300" height="200" alt=""> </div>
@@ -118,7 +129,6 @@
             </div>
         </div>
         @endforeach
-       
     </div>
 </div>
 
@@ -126,7 +136,7 @@
 {{-- THIS IS THE CORRECT WAY TO HAVE YOUR FILTERS WORK WITH THE PAGINATION. 
 YOU HAVE TO APPEND THE REQUEST PARAMS KERMEL YDALL MECHE OR ELSE FILTERS WILL 
 RESET ON PAGE 2 AND YOULL GET ALL THE PRODUCTS UNFILTERED --}}
-{{$products->appends(request()->input())->links()}}
+<div>{{$products->appends(request()->input())->links()}}</div>
 
 
 

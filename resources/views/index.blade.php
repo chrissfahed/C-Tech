@@ -58,7 +58,7 @@
                             <div class="media align-items-lg-center flex-column flex-lg-row p-3 bg-dark">
                                 <div class="media-body order-2 order-lg-1">
                                     <h5 class="mt-1 font-weight-bold mb-4"><a href="/shop/{{ $product->id }}" class="text-default mb-2">{{ $product->displayname}}</a></h5>
-                                    <p class="font-italic text-muted mb-0 small">{{ $product->description }}</p>
+                                    <p class="font-italic text-muted mb-0 small">{!!$product->description!!}</p>
                                     <div class="d-flex align-items-center justify-content-between mt-1">
                                         <h6 class="font-weight-bold my-2">${{ $product->price }}</h6>
                                     </div>

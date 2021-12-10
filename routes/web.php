@@ -10,6 +10,8 @@ use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AboutusController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +42,9 @@ Route::get('/empty',[CartController::class, 'emptycart'])->name('cart.empty');
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
 
+Route::post('/appointment2', [AppointmentController::class, 'update'])->name('appointment.store');
 
-
+Route::get('/aboutus', [AboutusController::class,'index'])->name('aboutus.index');
 
 // Route::get('/search', [ShopsController::class, 'search'])->name('search');
 Route::get('/search', 'App\Http\Controllers\ShopsController@search')->name('search');
@@ -66,4 +69,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile', [UsersController::class, 'index'])->name('user.index');
     
     Route::get('/checkout2',[CheckoutController::class,'store'])->name('checkout.store');
+
+    Route::post('/userupdate',[UsersController::class, 'update'])->name('user.update');
 });

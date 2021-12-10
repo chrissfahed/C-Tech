@@ -24,7 +24,7 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             @foreach ($products as $product)
-            <div class="col-md-6 mt-1">
+            <div class=" ">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-img-actions"> <img src={{asset('storage/'.$product->image)}} class="product iamge" width="400" height="350" alt=""> </div>
