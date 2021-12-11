@@ -103,7 +103,7 @@
 </div>
 </form>
 {{--  end filter --}}
-<div class="container d-flex justify-content-center mt-50 mb-50">
+<div class="container d-flex justify-content-center mt-5">
     <div class="row">
         @foreach ($products as $product)
         <div class="mt-1 col">
@@ -136,9 +136,9 @@
 {{-- THIS IS THE CORRECT WAY TO HAVE YOUR FILTERS WORK WITH THE PAGINATION. 
 YOU HAVE TO APPEND THE REQUEST PARAMS KERMEL YDALL MECHE OR ELSE FILTERS WILL 
 RESET ON PAGE 2 AND YOULL GET ALL THE PRODUCTS UNFILTERED --}}
-<div>{{$products->appends(request()->input())->links()}}</div>
+<div class="row justify-content-md-center mt-5 mb-5">{{$products->appends(request()->input())->links("pagination::bootstrap-4")}}</div>
 
 
 
-{{-- {{ $products->links()}} --}}
+
 @endsection()
