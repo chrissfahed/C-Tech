@@ -45,7 +45,7 @@ class CheckoutController extends Controller
             'user_id' => $uid,
             'billing_name' => $request->u_name,
             'billing_email' => $request->u_email,
-            'billiing_address' => $request->u_Address,
+            'billing_address' => $request->u_Address,
             // 'billing_city' => $request->city,
             // 'billing_phone' => $request->phone,
             'billing_total' => $request->c_total,

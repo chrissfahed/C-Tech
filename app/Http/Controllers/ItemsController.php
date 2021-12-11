@@ -13,7 +13,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $products = item::all()->where('isfeatured','=','1');
+        $products = item::inRandomOrder()->where('isfeatured','=','1')->take(3)->get();
         return view('index')->with('products',$products);
 
     }
