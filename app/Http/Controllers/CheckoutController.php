@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\OrderProduct;
+use App\Models\OrderItem;
 use App\Models\Order;
 use Cart;
 
@@ -42,20 +42,20 @@ class CheckoutController extends Controller
         $uid=$request->u_id;
         
         $order = Order::create([
-            'user_id' => $uid,
-            'billing_name' => $request->u_name,
-            'billing_email' => $request->u_email,
-            'billing_address' => $request->u_Address,
-            // 'billing_city' => $request->city,
-            // 'billing_phone' => $request->phone,
+            // dd($request) 
+            'user_id' => auth()->user()->id,
+            'billing_name' => auth()->user()->name,
+            'billing_email' => auth()->user()->email,
+            'billing_address' => auth()->user()->Address,
+            'billing_phone' => auth()->user()->phonenumber,
             'billing_total' => $request->c_total,
             'shipped' => 0,
         ]);
 
         foreach(Cart::content() as $item){
-            orderproduct::create([
+            orderItem::create([
                 'order_id' => $order->id,
-                'product_id' => $item->id,
+                'item_id' => $item->id,
                 'quantity' => $item->qty,
             ]);
         }
