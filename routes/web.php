@@ -42,7 +42,7 @@ Route::get('/empty',[CartController::class, 'emptycart'])->name('cart.empty');
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
 
-Route::post('/appointment2', [AppointmentController::class, 'update'])->name('appointment.store');
+Route::post('/appointment2', [AppointmentController::class, 'store'])->name('appointment.store');
 
 Route::get('/aboutus', [AboutusController::class,'index'])->name('aboutus.index');
 

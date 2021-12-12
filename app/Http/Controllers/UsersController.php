@@ -16,7 +16,10 @@ class UsersController extends Controller
     {
         $uid = auth()->user()->id;
         $orders = Order::all()->where('user_id', '=', $uid);
-        return view("profile")->with(['orders' => $orders]);
+        return view("profile")->with([
+            'orders' => $orders,
+           
+        ]);
     }
 
     /**

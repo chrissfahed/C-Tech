@@ -124,8 +124,33 @@
                   Security code required
                 </div>
               </div>
+              <hr>
+              <br>
+              
+
             </div>
             <hr class="mb-3">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="cc-name">NAME</label>
+                <input type="text" class="form-control" id="cc-name" name="u_name" value="{{ auth()->user()->name }}" required>
+                <small class="text-muted">Full name as displayed on card</small>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="cc-number">Address</label>
+                <input type="text" class="form-control" id="cc-number" name="u_Address" value="{{ auth()->user()->Address }}" required>
+                <div class="invalid-feedback">
+                  Address is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="cc-name">phone</label>
+                <input type="number" class="form-control" id="cc-name" name="u_phonenumber" value="{{ auth()->user()->phonenumber }}" required >
+                <small class="text-muted">phone number</small>
+              </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit" style="text-align: center">Continue to checkout</button>
           </form>
         </div>

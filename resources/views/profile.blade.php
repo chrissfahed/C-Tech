@@ -43,7 +43,7 @@
                             <h6 class="mb-0">Phone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                               <input type="number" value="{{ auth()->user()->phonenumber }}" name="phonenumber">
+                               <input type="tel" value="{{ auth()->user()->phonenumber }}" name="phonenumber">
                             </div>
                         </div>
                         <hr>
@@ -87,12 +87,12 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-100">
+            {{-- <div class="col-md-100">
               <div class="row gutters-sm">
                 <div class="col-sm-13 mb-3">
                   <div class="card h-200">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Your Orders</i>orders done </h6>
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Your Orders</i> </h6>
                       <table class="table table-dark">
                       <thead>
                         <tr>
@@ -111,19 +111,57 @@
                                 <td>{{ $orders->billing_total }}</td>
                               </tr>
                             </tbody>
-                          </table>
+                         
                           @endforeach
-                    </div>
+                        </table>
+                        </div>
                   </div>
                 </div>
               </div>
               </div>
-          </div>
-
-
+          
+            </div> --}}
+      </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                     <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">product</th>
+                          <th scope="col">Totall</th>
+                          <th scope="col">Status</th>
+                          
+                        </tr>
+                      </thead>
+                        @foreach ($orders as $orders)                           
+                        <tbody>
+                              <tr>
+                                <th scope="row">{{ $orders->order_id }}</th>
+                                <td>{{ $orders->billing_name }}</td>
+                                <td>{{ $orders->billing_email }}</td>
+                                <td>{{ $orders->billing_address }}</td>
+                                {{-- <td>{{ $orders->items->displayname }}</td> --}}
+                                <td>{{ $orders->billing_total }}</td>
+                                <td>
+                                  @if ($orders->shipped == "1")
+                                  <br> </span>status:<span class="text-success">shiped</span> 
+                                @else
+                                  <br><span>Status: </span><span class="text-danger">not shiped</span>
+                                @endif
+                                </td>
+                              </tr>
+                            </tbody>
+                         
+                          @endforeach
+                        </table>
+              </div>
             </div>
           </div>
-
+          </div>
         </div>
     </div>
   

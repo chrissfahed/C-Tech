@@ -31,9 +31,16 @@
                     
                     <div class="card-body bg-dark text-center">
                         <div class="mb-3">
-                            <h6 class="font-weight-semibold mb-2"> {{ $product->id }}
-                              {{!! $product->description !!}} </h6> {{ $product->brand}}
-
+                            <h6 class="font-weight-semibold mb-2"> 
+                              {{-- {{ $product->id }} --}}
+                              {!! $product->description !!} </h6> {{ $product->brand}}
+                              @if ($product->status == "NEW")
+                                <br> </span>status:<span class="text-success">NEW</span> 
+                              @else
+                                <br><span>Status: </span><span class="text-danger">USED</span>
+                              @endif
+                              
+                              
                         </div>
                         <h3 class="mb-0 font-weight-semibold">${{ $product->price}}</h3>
                         

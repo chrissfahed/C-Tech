@@ -35,23 +35,23 @@
                   <h2>Make	Appointment</h2>
                 </div>
               </div>
-              <form action="" method="post">
+              
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appointment_form">
                 <div class="form_section">
-                  <form class="form_contant" action={{ route('appointment.store') }}  method="post">
+                  <form method="POST" class="" action={{ route('appointment.store') }} >
                     {{-- {{ csrf_field() }} --}}
                     <fieldset class="row">
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="First Name*" type="text" required>
+                      <input type="text" class="field_custom" placeholder="First Name" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       <input type="text" class="field_custom" placeholder="Last Name" type="text" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="Your Email" type="email" required>
+                      <input type="email" class="field_custom"  placeholder="EMAIL" required>
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="Your Phone Number" type="text" required>
+                      <input type="tel" class="field_custom" placeholder="PHONE" type="text" required placeholder="Phone number">
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <input type="text" class="field_custom" placeholder="Subject" type="text" required>
@@ -60,13 +60,14 @@
                       <textarea class="field_custom" placeholder="Description" required></textarea>
                     </div>
                     <div class="center">
+                      <input type="hidden" value="2">
                       <button type="submit" class="btn main_bt">SUBMIT NOW</button>
+                    
                     </div>
                     </fieldset>
                   </form>
                 </div>
               </div>
-            </form>
             </div>
           </div>
         </div>

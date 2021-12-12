@@ -16,7 +16,7 @@ class ShopsController extends Controller
     public function index()
     {   
         // $products = item::all();
-        $products = item::paginate(3);
+        $products = item::paginate(6);
 
         $brand = Item::distinct()->get(['brand']);
         $type = Item::distinct()->get(['type']);
@@ -113,7 +113,7 @@ class ShopsController extends Controller
         // IF YOU PAGINATE FO2 BYETLA3LAK INCOMPLETE RESULTS (3 ITEMS IN THIS CASE) 
         // IN OTHER WORDS YOU FILTER 3 ITEMS BADEL THE WHOLE ITEMS TABLE
 
-        $products = $products->paginate(3);
+        $products = $products->paginate(6);
 
         $brand = Item::distinct()->get(['brand']);
         $type = Item::distinct()->get(['type']);

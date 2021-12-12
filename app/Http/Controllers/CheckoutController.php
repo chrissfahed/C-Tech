@@ -44,10 +44,10 @@ class CheckoutController extends Controller
         $order = Order::create([
             // dd($request) 
             'user_id' => auth()->user()->id,
-            'billing_name' => auth()->user()->name,
+            'billing_name' => $request->u_name,
             'billing_email' => auth()->user()->email,
-            'billing_address' => auth()->user()->Address,
-            'billing_phone' => auth()->user()->phonenumber,
+            'billing_address' => $request->u_Address,
+            'billing_phone' => $request->u_phonenumber,
             'billing_total' => $request->c_total,
             'shipped' => 0,
         ]);
