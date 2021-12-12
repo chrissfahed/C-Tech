@@ -71,4 +71,11 @@ Route::middleware('auth')->group(function() {
     Route::get('/checkout2',[CheckoutController::class,'store'])->name('checkout.store');
 
     Route::post('/userupdate',[UsersController::class, 'update'])->name('user.update');
+
+
+
+
+
+    //testing route
+    Route::get('/order/{id}', [UsersController::class, 'showOrder'])->name('order.show');
 });

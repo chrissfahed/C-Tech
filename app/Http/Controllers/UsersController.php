@@ -16,12 +16,24 @@ class UsersController extends Controller
     {
         $uid = auth()->user()->id;
         $orders = Order::all()->where('user_id', '=', $uid);
+        // dd($orders);
         return view("profile")->with([
             'orders' => $orders,
-           
+        
         ]);
     }
 
+    public function showOrder($id)
+    {
+        $uid = auth()->user()->id;
+        $orders = Order::all()->where('user_id', '=', $uid)->sortby('shipped');
+
+        $order = Order::where('id',$id)->firstOrFail();
+        $items = $order->items;
+        // dd($order);
+        // dd($items);
+
+}
     /**
      * Show the form for creating a new resource.
      *
@@ -76,6 +88,8 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'phonenumber' => ['required', 'numeric'],
+            'Address' => ['required', 'string', 'max:255'],
             'email' => 'required|string|email|max:255|unique:users,email,'.auth()->id(),
             'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed'],
         ]);
@@ -90,7 +104,7 @@ class UsersController extends Controller
 
         $user->password = bcrypt($request->password);
         $user->fill($input)->save();
-        return back()->withErrors('success_message', 'Profile and Password updated successfully!');
+        return back()->with('success_message', 'Profile and Password updated successfully!');
 
     }
 

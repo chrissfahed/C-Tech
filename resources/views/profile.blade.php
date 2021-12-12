@@ -3,10 +3,10 @@
 <div class="container">
     <div class="main-body">    
           <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+            <div class="mb-3 col-md-4">
               <div class="card">
                 <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
+                  <div class="text-center d-flex flex-column align-items-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4 style="color: black">{{ auth()->user()->name }}</h4>
@@ -15,8 +15,23 @@
                 </div>
               </div>
             </div>
+            @if (session()->has('success_message'))
+    <div class="alert alert-success">
+        {{session()->get('success_message')}}
+    </div>
+    @endif
+
+    @if(count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
             <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="mb-3 card">
                 <div class="card-body">
                     <form action={{ route('user.update') }} method="POST" >
                         {{ csrf_field() }}
@@ -25,7 +40,7 @@
                             <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                 <input type="text" value="{{ auth()->user()->name }}" name="username">
+                                 <input type="text" value="{{ auth()->user()->name }}" name="name">
                             </div>
                         </div>
                         <hr>
@@ -52,7 +67,7 @@
                             <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" value=" {{ auth()->user()->Address }}" name="address">
+                                <input type="text" value=" {{ auth()->user()->Address }}" name="Address">
                             </div>
                         </div>
                         <hr>
@@ -61,7 +76,7 @@
                             <h6 class="mb-0">New Password</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                               <input type="password" name="password">
+                              <input type="password" name="password">
                             </div>
                         </div>
                         <div class="row">
@@ -89,10 +104,10 @@
             </div>
             {{-- <div class="col-md-100">
               <div class="row gutters-sm">
-                <div class="col-sm-13 mb-3">
+                <div class="mb-3 col-sm-13">
                   <div class="card h-200">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Your Orders</i> </h6>
+                      <h6 class="mb-3 d-flex align-items-center"><i class="mr-2 material-icons text-info">Your Orders</i> </h6>
                       <table class="table table-dark">
                       <thead>
                         <tr>
@@ -122,7 +137,7 @@
           
             </div> --}}
       </div>
-            <div class="card mb-3">
+            <div class="mb-3 card">
               <div class="card-body">
                      <table class="table table-dark">
                       <thead>
@@ -140,22 +155,26 @@
                         @foreach ($orders as $orders)                           
                         <tbody>
                               <tr>
-                                <th scope="row">{{ $orders->order_id }}</th>
+                                <th scope="row">{{ $orders->id }}</th>
                                 <td>{{ $orders->billing_name }}</td>
                                 <td>{{ $orders->billing_email }}</td>
                                 <td>{{ $orders->billing_address }}</td>
-                                {{-- <td>{{ $orders->items->displayname }}</td> --}}
+                                <td>@foreach ($orders->items  as $item)
+                                    <ul>
+                                      <li>- {{$item->displayname}}</li>
+                                    </ul>
+                                @endforeach</td>
                                 <td>{{ $orders->billing_total }}</td>
                                 <td>
                                   @if ($orders->shipped == "1")
-                                  <br> </span>status:<span class="text-success">shiped</span> 
+                                  Status: <span class="text-success">Shiped</span> 
                                 @else
-                                  <br><span>Status: </span><span class="text-danger">not shiped</span>
+                                  Status: <span class="text-danger">Not Shiped</span>
                                 @endif
                                 </td>
                               </tr>
                             </tbody>
-                         
+                            
                           @endforeach
                         </table>
               </div>
