@@ -103,6 +103,8 @@
                                           <input type="hidden" name="name" value="{{ $product->displayname }}">
                                           <input type="hidden" name="price" value="{{ $product->price }}">
                                           <input type="hidden" name="image" value="{{ $product->image }}">
+                                          <input type="hidden" name="status" value="{{ $product->status }}">
+                                          <input type="hidden" name="quantity" value="1">
                                           <button type="submit" class="btn bg-dark bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                                     </form>
                                     {{-- '{{ $product->image}}' --}}

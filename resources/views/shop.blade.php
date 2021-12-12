@@ -122,6 +122,7 @@
                         <input type="hidden" name="price" value="{{ $product->price }}">
                         <input type="hidden" name="image" value="{{ $product->image }}">
                         <input type="hidden" name="status" value="{{ $product->status }}">
+                        <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="btn bg-dark bg-cart"><i class="mr-2 fa fa-cart-plus"></i> Add to cart</button>
                       </form> 
                   </div>

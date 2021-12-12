@@ -80,16 +80,33 @@
 					  	</div>
 					</td>
 					<div class="media">
-						<td class="col-sm-1 col-md-1" style="text-align: center">
+
+						
+						{{-- <td class="col-sm-1 col-md-1" style="text-align: center">
+							
 								<select class="quantity" name="quantity" id="">
 									@for ($i = 1; $i < 5 + 1 ; $i++)
-                                    	<option {{ $row->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    	<option {{ $row->qty == $i ? 'selected' : '' }}>{{  $row->quantity }} }}</option>
                                 	@endfor
 								</select>
-						</td>
+						</td> --}}
 					</div>
+					<td class="col-sm-1 col-md-1 text-center">
+						<form action="{{ route('cart.quantityincrease',$row->rowId) }}" method="post">
+							{{ csrf_field() }}
+						{{-- <input type="hidden" name="rowid" id="" value="{{$row->rowId}}"> --}}
+						<button type="submit" class="btn btn-increase"> +</button> 
+						</form>
+						<form action="{{ route('cart.quantityreduce',$row->rowId) }}" method="post">
+							{{ csrf_field() }}
+						{{-- <input type="hidden" name="rowid" id="" value="{{$row->rowId}}"> --}}
+						<button type="submit" class="btn btn-reduce"> -</button> 
+						</form>
+						
+						<p class="price_table">{{ $row->qty }}</p>
+					</td>
 					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->price }}</p></td>
-					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->price }}</p></td>
+					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->total }}</p></td>
 					<td class="col-sm-1 col-md-1">
 
 					<form action="{{ route('cart.destroy',$row->rowId) }}" method="POST">

@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function() {
 
     Route::post('/userupdate',[UsersController::class, 'update'])->name('user.update');
 
+    Route::post('/incrementqty/{rowid}',[CartController::class, 'increaseQuantity'])->name('cart.quantityincrease');
+    Route::post('/reduceqty/{rowid}',[CartController::class, 'decreaseQuantity'])->name('cart.quantityreduce');
 
 
 

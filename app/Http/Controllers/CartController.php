@@ -35,21 +35,22 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $duplicates = Cart::search(function($cartitem,$rowid) use ($request){
             return $cartitem->id == $request->id;
         });
         if($duplicates->isnotempty()){
             return redirect()->route('cart.index')->with('success_message','Item is already in your cart!');
         }
-        Cart::add($request->id ,$request->name , 1 ,$request->price)
-            ->associate('App\Models\Item');
+ 
+        Cart::add($request->id ,$request->name,$request->quantity,$request->price)
+            ->associate('App\Models\Item'); 
             
             return redirect()->route('cart.index')->with('success_message','Item was added to your cart!');
     }
     public function empty()
     {
-
+        //
     }
 
     /**
@@ -105,6 +106,21 @@ class CartController extends Controller
     {
         Cart::destroy();
         return back()->with('success_message','all items have been removed');
+    }
+    public function increaseQuantity($rowId)
+    {   
+        $product = Cart::get($rowId);
+        $qty=$product->qty + 1;
+        Cart::update($rowId,$qty);
+        return back()->with('success_message','quantity has been increased');
+    }
+
+    public function decreaseQuantity($rowId)
+    {
+        $product = Cart::get($rowId);
+        $qty=$product->qty - 1;
+        Cart::update($rowId,$qty);
+        return back()->with('success_message','quantity has been deacreased');
     }
 
 }

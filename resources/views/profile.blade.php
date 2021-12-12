@@ -15,21 +15,27 @@
                 </div>
               </div>
             </div>
-            @if (session()->has('success_message'))
-    <div class="alert alert-success">
-        {{session()->get('success_message')}}
-    </div>
-    @endif
 
-    @if(count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+
+
+              <div class="container">
+                     @if (session()->has('success_message'))
+                    <div class="alert alert-success">
+                        {{session()->get('success_message')}}
+                    </div>
+                    @endif
+
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+              </div>
+            
             <div class="col-md-8">
               <div class="mb-3 card">
                 <div class="card-body">
@@ -102,40 +108,7 @@
                 </div>
               </div>
             </div>
-            {{-- <div class="col-md-100">
-              <div class="row gutters-sm">
-                <div class="mb-3 col-sm-13">
-                  <div class="card h-200">
-                    <div class="card-body">
-                      <h6 class="mb-3 d-flex align-items-center"><i class="mr-2 material-icons text-info">Your Orders</i> </h6>
-                      <table class="table table-dark">
-                      <thead>
-                        <tr>
-                          <th scope="col">id</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Address</th>
-                          <th scope="col">Totall</th>
-                        </tr>
-                      </thead>
-                        @foreach ($orders as $orders)                           
-                        <tbody>
-                              <tr>
-                                <th scope="row">{{ $orders->order_id }}</th>
-                                <td>{{ $orders->billing_name }}</td>
-                                <td>{{ $orders->billiing_address }}</td>
-                                <td>{{ $orders->billing_total }}</td>
-                              </tr>
-                            </tbody>
-                         
-                          @endforeach
-                        </table>
-                        </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-          
-            </div> --}}
+
       </div>
             <div class="mb-3 card">
               <div class="card-body">
@@ -164,7 +137,7 @@
                                       <li>- {{$item->displayname}}</li>
                                     </ul>
                                 @endforeach</td>
-                                <td>{{ $orders->billing_total }}</td>
+                                <td>{{ $orders->billing_total }} $</td>
                                 <td>
                                   @if ($orders->shipped == "1")
                                   Status: <span class="text-success">Shiped</span> 
