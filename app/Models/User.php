@@ -48,4 +48,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->HasMany('App\Models\Order');
     }
+
+    public function appointments()
+    {
+        return $this->HasMany('App\Models\Appointment');
+    }
 }
