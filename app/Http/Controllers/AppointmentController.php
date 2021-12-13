@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Appointment;
 
 class AppointmentController extends Controller
 {
@@ -34,7 +35,17 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
+
+    $appointment = Appointment::create([
+        'user_id' => auth()->user()->id,
+        'subject' => $request->subject,
+        'description' => $request->desc,
+        'date' => $request->date,
+        'status' => 'Pending'
+        ]);
+
+        return redirect('/profile')->with('success_message', 'Appointment Created');
     }
 
     /**

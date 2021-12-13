@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <div class="full">
             <div class="title-holder">
-              <div class="title-holder-cell text-left">
+              <div class="text-left title-holder-cell">
                 <h1 class="page-title">Make	Appointment</h1>
                 <ol class="breadcrumb">
                   <li><a href="index.html">Home</a></li>
@@ -39,26 +39,18 @@
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appointment_form">
                 <div class="form_section">
                   <form method="POST" class="" action={{ route('appointment.store') }} >
-                    {{-- {{ csrf_field() }} --}}
+                    {{ csrf_field() }}
                     <fieldset class="row">
-                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="First Name" required>
-                    </div>
-                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="Last Name" type="text" required>
-                    </div>
-                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="email" class="field_custom"  placeholder="EMAIL" required>
-                    </div>
-                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input type="tel" class="field_custom" placeholder="PHONE" type="text" required placeholder="Phone number">
+                    <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <input type="text" class="field_custom" placeholder="Subject" type="text" name="subject" required>
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <input type="text" class="field_custom" placeholder="Subject" type="text" required>
+                      <textarea class="field_custom" placeholder="Description" name="desc" required></textarea>
                     </div>
-                    <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <textarea class="field_custom" placeholder="Description" required></textarea>
-                    </div>
+
+                    <span for="start" class="mr-2">Appointment Date:   </span>
+                    <input type="date"  name="date">
+
                     <div class="center">
                       <input type="hidden" value="2">
                       <button type="submit" class="btn main_bt">SUBMIT NOW</button>

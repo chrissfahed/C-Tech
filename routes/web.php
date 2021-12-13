@@ -40,9 +40,6 @@ Route::get('/contactus', [ContactusController::class, 'index'])->name('contactus
 
 Route::get('/empty',[CartController::class, 'emptycart'])->name('cart.empty');
 
-Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
-
-Route::post('/appointment2', [AppointmentController::class, 'store'])->name('appointment.store');
 
 Route::get('/aboutus', [AboutusController::class,'index'])->name('aboutus.index');
 
@@ -75,7 +72,10 @@ Route::middleware('auth')->group(function() {
     Route::post('/incrementqty/{rowid}',[CartController::class, 'increaseQuantity'])->name('cart.quantityincrease');
     Route::post('/reduceqty/{rowid}',[CartController::class, 'decreaseQuantity'])->name('cart.quantityreduce');
 
+    Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
 
+    Route::post('/appointment2', [AppointmentController::class, 'store'])->name('appointment.store');
+    
 
 
     //testing route

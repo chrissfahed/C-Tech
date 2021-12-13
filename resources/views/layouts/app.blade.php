@@ -47,7 +47,7 @@
                 <div class="full">
                   <div class="topbar-left">
                     <ul class="list-inline">
-                      <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Lebanon,keserwan,Aachqout</span> </li>
+                      <li> <span class="topbar-label"><i class="fa fa-home"></i></span> <span class="topbar-hightlight">Lebanon,keserwan,Aachqout</span> </li>
                       <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">C-Tech@gmail.com</a></span> </li>
                     </ul>
                   </div>
@@ -56,17 +56,22 @@
               <div class="col-md-4 right_section_header_top">
                 <div class="float-left">
                   <div class="social_icon">
+                    @if (Auth::check())
                     <ul class="list-inline">
-                      <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
-                      <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
-                      <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
-                      <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
-                      <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+                    <li><span class="topbar-hightlight">Logged in as: {{auth()->user()->name}} </span></li>
                     </ul>
+                    @endif
                   </div>
                 </div>
                 <div class="float-right">
-                  <div class="make_appo"> <a class="btn white_btn" href="/appointment">Make Appointment</a> </div>
+                  <div class="make_appo"> 
+                    @if (Auth::check())
+                    <a class="btn white_btn" href="/Logout">Logout</a>
+                    
+                    @else
+                    <a class="btn white_btn" href="/login">Login/Register</a>
+                    @endif
+                  </div>
                 </div>
                 
               </div>
@@ -92,9 +97,6 @@
                   <div id="navbar_menu">
                     <ul class="first-ul">
                       <li>
-                        @if (Auth::check())
-                        <h1 style="color:grey">Welcome {{ auth()->user()->name }}!</h1></li>
-                        @endif
                       <li> <a class="active" href="/">Home</a></li>
                       <li> <a href="/shop">SHOP</a></li>
                       <li> <a href="/cart">cart
@@ -106,20 +108,10 @@
                       </li> 
                       <li> <a href="/contactus">Contact Us</a></li>
                       <li><a href="/aboutus">About Us</a></li>
-                      <li>
-                        @if (Auth::check())
-                        <a href="/profile">Profile</a>
-                        @endif
-                      </li>
-                      <li>
-                        @if (Auth::check())
-                        <a href="/Logout">Logout</a>
-                        
-                        @else
-                        <a href="/login">LOGIN/REGISTER</a>
-                        @endif
-                      </li>
-                      
+                      @if (Auth::check())
+                      <li><a href="/profile">Profile</a></li>
+                      <li><a href="/appointment">Appointment</a></li>
+                      @endif
                     </ul>
                   </div>
                   {{-- <div class="search_icon">

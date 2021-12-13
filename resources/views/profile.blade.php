@@ -112,10 +112,10 @@
       </div>
             <div class="mb-3 card">
               <div class="card-body">
-                     <table class="table table-dark">
+                    <table class="table table-dark">
                       <thead>
                         <tr>
-                          <th scope="col">id</th>
+                          <th scope="col">Order Id</th>
                           <th scope="col">Name</th>
                           <th scope="col">Email</th>
                           <th scope="col">Address</th>
@@ -150,6 +150,29 @@
                             
                           @endforeach
                         </table>
+
+                        <table class="table table-dark">
+                          <thead>
+                            <tr>
+                              <th scope="col">Appointment ID</th>
+                              <th scope="col">Subject</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Status</th>
+                            </tr>
+                          </thead>
+                          @foreach ($appointments as $appointment)
+                            <tbody>
+                                  <tr>
+                                    <th scope="row">{{ $appointment->id }}</th>
+                                    <td>{{ $appointment->subject }}</td>
+                                    <td>{{ $appointment->description }}</td>
+                                    <td>{{ $appointment->date }}</td>
+                                    <td>{{ $appointment->status }}</td>
+                                  </tr>
+                                </tbody>
+                          @endforeach
+                            </table>
               </div>
             </div>
           </div>

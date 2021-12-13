@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Appointment;
+
 
 class UsersController extends Controller
 {
@@ -16,10 +18,12 @@ class UsersController extends Controller
     {
         $uid = auth()->user()->id;
         $orders = Order::all()->where('user_id', '=', $uid);
-        // dd($orders);
+        $appointments = Appointment::all()->where('user_id', '=', $uid);
+
+        // dd($appointments);
         return view("profile")->with([
             'orders' => $orders,
-        
+            'appointments' => $appointments,
         ]);
     }
 
