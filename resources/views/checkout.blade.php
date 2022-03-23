@@ -66,14 +66,7 @@
             </li>
           </ul>
 
-          <form class="p-2 card" action="" >
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
-          </form>
+
         </div>
         <div class="col-md-8 order-md-1">
           
@@ -81,7 +74,7 @@
             {{ csrf_field() }}
             <div class="row">
               <div class="mb-3 col-md-6">
-                <input type="text" class="form-control" id="firstName" placeholder="{{ auth()->user()->name }}" value="" required>
+               
                 {{-- <input type="hidden" name="u_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="u_email" value="{{ auth()->user()->email }}">
                 <input type="hidden" name="u_Address" value="{{ auth()->user()->Address }}">

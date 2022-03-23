@@ -94,19 +94,19 @@
 					<td class="col-sm-1 col-md-1 text-center">
 						<form action="{{ route('cart.quantityincrease',$row->rowId) }}" method="post">
 							{{ csrf_field() }}
-						{{-- <input type="hidden" name="rowid" id="" value="{{$row->rowId}}"> --}}
-						<button type="submit" class="btn btn-increase"> +</button> 
+						
+						<span><button type="submit" class="btn btn-increase"> +</button> </span>
 						</form>
 						<form action="{{ route('cart.quantityreduce',$row->rowId) }}" method="post">
 							{{ csrf_field() }}
-						{{-- <input type="hidden" name="rowid" id="" value="{{$row->rowId}}"> --}}
-						<button type="submit" class="btn btn-reduce"> -</button> 
+						
+						<span><button type="submit" class="btn btn-reduce"> -</button></span> 
 						</form>
 						
-						<p class="price_table">{{ $row->qty }}</p>
+						<p class="price_table" style="color:blanchedalmond">{{ $row->qty }}</p>
 					</td>
-					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->price }}</p></td>
-					<td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ $row->total }}</p></td>
+					<td class="col-sm-1 col-md-1 text-center"><p class="price_table" style="color:blanchedalmond">{{ $row->price }}</p></td>
+					<td class="col-sm-1 col-md-1 text-center"><p class="price_table"style="color:blanchedalmond">{{ $row->total }}</p></td>
 					<td class="col-sm-1 col-md-1">
 
 					<form action="{{ route('cart.destroy',$row->rowId) }}" method="POST">

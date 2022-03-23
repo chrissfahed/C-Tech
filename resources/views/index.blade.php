@@ -1,55 +1,6 @@
 @extends('/layouts.app')
 @section('content')
 {{-- start carousel --}}
-{{-- <div class="justify-content-md-center mt-5 mb-5">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-
-            <div class="carousel- " >
-                
-                <div class="row">
-                    <div class="carousel-item active" >
-                        <img class="d-block w-40" src="{{ asset('images/carousel/iphone 13 promax.jpg') }}" alt="repaire technician" width="700" height="500">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5> Iphone pro max</h5>
-                                <p>...</p>
-                            </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-80" src="{{ asset('images/carousel\samsung s21 ultra.jpg') }}" alt="Second slide" width="700" height="500" >
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-40" src="{{ asset('images\carousel\gygabite mother board.png') }}" alt="Third slide" width="700" height="500">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
-                    </div>
-                </div>
-                
-            </div>
-        
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-</div> --}}
-
-
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -60,7 +11,7 @@
         <img class="d-block w-100" src="{{ asset('images/carousel\samsung s21 ultra.jpg') }}" alt="Second slide"  width="500" height="400">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('images\carousel\gygabite mother board.png') }}" alt="Third slide"  width="500" height="400">
+        <img class="d-block w-100" src="{{ asset('images\carousel\alienware laptop.jpg') }}" alt="Third slide"  width="500" height="400">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -72,13 +23,8 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-       {{-- end carousel  --}}
-
-
-
-
-
-    <div class="container py-5">
+{{-- end carousel  --}}
+<div class="container py-5">
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">
                 <h1 class="display-4" style="color: whitesmoke">FEATURED PRODUCTS</h1>
@@ -107,7 +53,6 @@
                                           <input type="hidden" name="quantity" value="1">
                                           <button type="submit" class="btn bg-dark bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                                     </form>
-                                    {{-- '{{ $product->image}}' --}}
                                     </div><img src={{asset('storage/'.$product->image)}}   alt="featured product images" width="200" class="ml-lg-5 order-1 order-lg-2">
                             </div> <!-- End -->
                         </li> <!-- End -->

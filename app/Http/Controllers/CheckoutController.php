@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\items;
 use App\Models\OrderItem;
 use App\Models\Order;
+use App\Models\Item;
 use Cart;
 
 class CheckoutController extends Controller
@@ -37,7 +39,9 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // if ($this->productsAreNoLongerAvailable()){
+        //     return back()->withErrors('Sorry! One of the items in your cart is no longer available.');
+        // }
         
         $uid=$request->u_id;
         
@@ -59,6 +63,14 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty,
             ]);
         }
+        foreach (Cart::content() as $item){
+             $product = item::find($item->id);
+            //dd($item->qty);
+            //item::update(['quantity' => $product->quantity - $item->qty]); 
+            //$item::where('id',$item->id)->update(['quantity' => $product->quantity - $item->qty]);
+        }
+
+
         Cart::destroy();
         return view('thankyou');
     }
@@ -107,4 +119,14 @@ class CheckoutController extends Controller
     {
         //
     }
+    // protected function productsAreNoLongerAvailable()
+    // {
+    //     foreach (Cart::content() as $product){
+    //         $item = item::find($item->id);
+    //         if ($product->quantity < $item->qty){
+    //             return TRUE;
+    //         }
+    //     }
+    //     return FALSE;
+    // }
 }
